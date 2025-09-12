@@ -18,7 +18,7 @@ import { lastValueFrom } from 'rxjs';
   styleUrls: ['./polling.component.css']
 })
 export class PollingComponent implements OnInit {
-  apiUrl = "https://localhost:7289/api/";
+  apiUrl = "http://localhost:5042/api/";
   title = 'labo.signalr.ng';
   tasks: UselessTask[] = [];
   taskname: string = "";
@@ -47,7 +47,7 @@ export class PollingComponent implements OnInit {
     // TODO: UNE FOIS QUE VOUS AVEZ TESTER AVEC DEUX CLIENTS: Utiliser le polling pour mettre la liste de tasks à jour chaque seconde
     let x = await lastValueFrom(this.http.get<any>(this.apiUrl + "UselessTasks/GetAll"));
     this.tasks = x
-    setTimeout(() => {this.updateTasks()}, 1000)
+    // setTimeout(() => {this.updateTasks()}, 1000)
   }
 
   // async polling() {
