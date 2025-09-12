@@ -29,16 +29,16 @@ export class PollingComponent implements OnInit {
     this.updateTasks();
   }
 
-  complete(id: number) {
+  async complete(id: number) {
     // TODO On invoke la méthode pour compléter une tâche sur le serveur (Contrôleur d'API)
-    
+    let x = await lastValueFrom(this.http.get<any>(this.apiUrl + "UselessTasks/Complete/" + id));
+    console.log(x);
   }
 
-  addtask() {
+  async addtask() {
     // TODO On invoke la méthode pour ajouter une tâche sur le serveur (Contrôleur d'API)
-
-    
-
+    let x = await lastValueFrom(this.http.post<any>(this.apiUrl + "UselessTasks/Add?taskText=" + this.taskname, null));
+    console.log(x);
     console.log(this.tasks);
   }
 
