@@ -13,17 +13,17 @@ import { lastValueFrom } from 'rxjs';
 @Component({
   selector: 'app-polling',
   standalone: true,
-  imports: [MatCheckbox,MatCardContent,MatCard,MatFormField,FormsModule,MatLabel,CommonModule,MatInput,MatButtonModule],
+  imports: [MatCheckbox, MatCardContent, MatCard, MatFormField, FormsModule, MatLabel, CommonModule, MatInput, MatButtonModule],
   templateUrl: './polling.component.html',
   styleUrls: ['./polling.component.css']
 })
 export class PollingComponent implements OnInit {
-  apiUrl = "http://localhost:5042/api/";
+  apiUrl = "https://localhost:7289/api/";
   title = 'labo.signalr.ng';
   tasks: UselessTask[] = [];
   taskname: string = "";
 
-  constructor(private http:HttpClient){}
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     this.updateTasks();
