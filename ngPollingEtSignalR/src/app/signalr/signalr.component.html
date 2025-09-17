@@ -1,4 +1,10 @@
-<mat-card  style="width: 700px; margin: auto; margin-top: 30px;">
+<mat-card style="width: 700px; margin: auto; margin-top: 30px;">
+  <mat-card-content>User Count :
+    <span style="font-weight: bold; color: green;">{{userCount}}</span>
+  </mat-card-content>
+</mat-card>
+
+<mat-card style="width: 700px; margin: auto; margin-top: 30px;">
   <mat-card-content>Add Task</mat-card-content>
   <mat-form-field>
     <mat-label>Task</mat-label>
@@ -6,11 +12,12 @@
   </mat-form-field>
   <button mat-raised-button color="accent" (click)="addtask()">Add task</button>
 </mat-card>
-<mat-card  style="width: 700px; margin: auto; margin-top: 30px;">
+<mat-card style="width: 700px; margin: auto; margin-top: 30px;">
   <mat-card-content>Tasks</mat-card-content>
   <ul style="list-style-type: none;">
     <li *ngFor="let task of tasks">
-      <mat-checkbox (change)="complete(task.id)" [(ngModel)]="task.completed" [disabled]="task.completed" [class.completed]="task.completed">
+      <mat-checkbox (change)="complete(task.id)" [(ngModel)]="task.completed" [disabled]="task.completed"
+        [class.completed]="task.completed">
         {{task.text}}
       </mat-checkbox>
     </li>

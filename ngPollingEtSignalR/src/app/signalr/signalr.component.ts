@@ -22,6 +22,7 @@ export class SignalrComponent implements OnInit {
   usercount = 0;
   tasks: UselessTask[] = [];
   taskname: string = "";
+  userCount: number = 0;
 
   ngOnInit(): void {
     this.connecttohub()
@@ -37,6 +38,13 @@ export class SignalrComponent implements OnInit {
     this.hubConnection!.on('TaskList', (data: UselessTask[]) => {
       console.log("======= TaskList =======");
       this.tasks = data
+      console.log(data);
+    });
+
+
+    this.hubConnection!.on('UserCount', (data: number) => {
+      console.log("======= UserCount =======");
+      this.userCount = data
       console.log(data);
     });
 
